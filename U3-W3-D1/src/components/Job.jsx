@@ -2,6 +2,7 @@ import { Row, Col, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { useState } from 'react'
+import { addToFavoritesAction } from '../redux/actions'
 
 const Job = ({ data }) => { 
 
@@ -17,10 +18,7 @@ const Job = ({ data }) => {
         <Link to={`/${data.company_name}`}>{data.company_name}</Link>
         <Button onClick={() => {
           console.log('aggiungo azienda')
-          dispatch({
-            type: 'ADD_ENTERPRISE',
-            payload: data
-          })
+          dispatch(addToFavoritesAction(data))
           setIsSelected(true)
         }}>{isSelected ? (<i className="bi bi-heart-fill"></i>) : (<i className="bi bi-heart"></i>)}</Button>
       </Col>

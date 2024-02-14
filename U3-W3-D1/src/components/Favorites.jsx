@@ -1,6 +1,7 @@
 import { Button, Container, ListGroup, Row } from "react-bootstrap"
 import { useSelector, useDispatch } from "react-redux"
 import { Link } from "react-router-dom"
+import { removeFromFavoritesAction } from "../redux/actions"
 
 const Favorites = () => {
 
@@ -18,10 +19,7 @@ const Favorites = () => {
                         <Link to={`/${enterprise.company_name}`} key={i}>{enterprise.company_name}</Link>
                         <Button  className="list-group-item" onClick={() => {
                             console.log("elimino l'azienda")
-                            dispatch({
-                                type: "REMOVE_ENTERPRISE",
-                                payload: i //indice dell'azienda ---> così riesco a capire quale elemento eliminare
-                            })
+                            dispatch(removeFromFavoritesAction(i))
                         }}><i className="bi bi-trash"></i></Button>
                         </ListGroup.Item>
                     )

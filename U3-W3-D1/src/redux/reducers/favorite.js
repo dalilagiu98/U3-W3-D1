@@ -1,12 +1,14 @@
+import { ADD_ENTERPRISE, REMOVE_ENTERPRISE } from "../actions";
+
 const initialState = {
   favorites: {
     content: [],
   },
 };
 
-const mainReducer = (state = initialState, action) => {
+const favoriteReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "ADD_ENTERPRISE":
+    case ADD_ENTERPRISE:
       return {
         ...state,
         favorites: {
@@ -15,7 +17,7 @@ const mainReducer = (state = initialState, action) => {
         },
       };
 
-    case "REMOVE_ENTERPRISE":
+    case REMOVE_ENTERPRISE:
       return {
         ...state,
         favorites: {
@@ -30,4 +32,4 @@ const mainReducer = (state = initialState, action) => {
   }
 };
 
-export default mainReducer;
+export default favoriteReducer;
